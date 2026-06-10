@@ -123,6 +123,7 @@ function moveCharacter() {
   if (keyIsDown(UP_ARROW))    characterY -= characterSpeed;
   if (keyIsDown(DOWN_ARROW))  characterY += characterSpeed;
   image(characterImage, characterX, characterY, characterW, characterH);
+ 
 }
 
 function makeZombies(difficulty) {
@@ -158,11 +159,12 @@ function updateZombies() {
       z.speed = z.speed + 0.5;
     }
     image(z.img, z.x, z.y, z.size, z.size);
+
   }
 }
 
 function checkCollision(z) {
-  var xOverlap = characterX < z.x + z.size && z.x < characterX + characterW;
+  var xOverlap = characterX+30 < z.x + z.size && z.x < characterX + characterW-30;
   var yOverlap = characterY < z.y + z.size && z.y < characterY + characterH;
   return xOverlap && yOverlap;
 }
