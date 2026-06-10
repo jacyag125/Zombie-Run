@@ -122,6 +122,10 @@ function moveCharacter() {
   if (keyIsDown(RIGHT_ARROW)) characterX += characterSpeed;
   if (keyIsDown(UP_ARROW))    characterY -= characterSpeed;
   if (keyIsDown(DOWN_ARROW))  characterY += characterSpeed;
+  
+  characterX = constrain(characterX, 0, W - characterW);
+  characterY = constrain(characterY, 0, H - characterH);
+  
   image(characterImage, characterX, characterY, characterW, characterH);
  
 }
